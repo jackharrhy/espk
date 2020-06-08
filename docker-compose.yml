@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  espk:
+    image: jackharrhy/espk
+    build: ./.
+    ports:
+      - "3750:3750"

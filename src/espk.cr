@@ -95,7 +95,8 @@ speakers_list, speakers_map = generate_speakers()
 valid_names = speakers_map.keys
 speakers_map_json = speakers_map.to_json
 
-get "/voices" do
+get "/voices" do |env|
+  env.response.content_type = "application/json"
   speakers_map_json
 end
 

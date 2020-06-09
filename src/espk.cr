@@ -154,10 +154,7 @@ get "/text/:text" do |env|
       "espeak",
       args,
       input: reader,
-      output: Process::Redirect::Pipe
     )
-
-    stdout = process.output.gets_to_end
 
     raise Exception.new("failed!") unless process.wait.success?
 
@@ -172,6 +169,10 @@ get "/text/:text" do |env|
       file.delete
     end
   end
+end
+
+{Signal::INT, Signal::TERM}.each &.trap do
+  exit
 end
 
 Kemal.config.port = 3750

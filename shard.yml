@@ -1,6 +1,10 @@
 name: espk
 version: 0.1.0
 
+targets:
+  site:
+    main: src/espk.cr
+
 authors:
   - name <me@jackharrhy.com>
 
